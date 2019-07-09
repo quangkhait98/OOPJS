@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body> 
+    <script>
+        function Animal (name,averageWeight,numberOfLegs){
+            this.Name = name;
+            this.AverageWeight=averageWeight;
+            this.NumberOfLegs=numberOfLegs;
+        }
+        Animal.prototype.showname= function()
+        {
+            console.log(this.Name);
+        }
+        function Bird (name,averageWeight,numberOfLegs,highfly){
+            Animal.call(this,name,averageWeight,numberOfLegs)
+            this.Highfly=highfly;
+        }
+
+        Bird.prototype=new Animal();
+        Bird.prototype.constructor=Bird;
+        // var pig = new Animal('pig','20kg','4');
+        // console.log(pig);
+        //  pig.showname();
+        var bird = new Bird('bird','2kg','2','50m');
+        bird.showname();
+    </script>
+</body>
+</html>
